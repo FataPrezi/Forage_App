@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,8 +48,7 @@
          @include('layout.main-content')
          @include('layout.footer')
 
-
-     </div>
+    </div>
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->

@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('layout.facture.create');
+    return view('layout.navbar');
 });
 
 
