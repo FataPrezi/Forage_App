@@ -1,5 +1,4 @@
-@extends('layout.default')
-@section('navbar')
+
 <div>
 <header class="main-header">
     <!-- Logo -->
@@ -268,4 +267,4 @@
     </nav>
   </header>
 </div>
-  @stop
+
