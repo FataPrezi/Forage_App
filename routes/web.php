@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('layout.default');
 });
 
-Route::get('/test', function () {
+/* Route::get('/test', function () {
     return view('layout.navbar');
-});
+}); */
 
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
