@@ -13,7 +13,7 @@ class Client extends Model
     {return $this->belongsTo('App\Gestionnaire');}
 
     public function abonnement ()
-    {return $this->belongsToMany('App\Abonnement');}
+    {return $this->hasMany('App\Abonnement');}
 
     public function village ()
     {return $this->belongsTo('App\Village');}
