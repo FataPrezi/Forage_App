@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Abonnement
- * 
+ *
  * @property int $id
  * @property string $uuid
  * @property string $details
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @property string $deleted_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * 
+ *
  * @property \App\Client $client
  * @property \App\Compteur $compteur
  *
@@ -44,11 +44,11 @@ class Abonnement extends Eloquent
 
 	public function client()
 	{
-		return $this->belongsTo(\App\Client::class, 'clients_id');
+		return $this->belongsToMany(\App\Client::class, 'clients_id');
 	}
 
 	public function compteur()
 	{
-		return $this->belongsTo(\App\Compteur::class, 'compteurs_id');
+		return $this->belongsToMany(\App\Compteur::class, 'compteurs_id');
 	}
 }
