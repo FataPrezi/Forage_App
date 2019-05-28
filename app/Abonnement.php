@@ -44,11 +44,11 @@ class Abonnement extends Eloquent
 
 	public function client()
 	{
-		return $this->belongsToMany(\App\Client::class, 'clients_id');
+		return $this->belongsTo(\App\Client::class, 'clients_id');
 	}
 
 	public function compteur()
 	{
-		return $this->belongsToMany(\App\Compteur::class, 'compteurs_id');
+		return $this->belongsTo(\App\Compteur::class, 'compteurs_id');
 	}
 }

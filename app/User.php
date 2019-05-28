@@ -63,31 +63,31 @@ class User extends Eloquent
 
 	public function role()
 	{
-		return $this->belongsToMany(\App\Role::class, 'roles_id');
+		return $this->belongsTo(\App\Role::class, 'roles_id');
 	}
 
-	public function administrateurs()
+	public function administrateur()
 	{
-		return $this->hasMany(\App\Administrateur::class, 'users_id');
+		return $this->hasOne(\App\Administrateur::class, 'users_id');
 	}
 
-	public function agents()
+	public function agent()
 	{
-		return $this->hasMany(\App\Agent::class, 'users_id');
+		return $this->hasOne(\App\Agent::class, 'users_id');
 	}
 
-	public function clients()
+	public function client()
 	{
-		return $this->hasMany(\App\Client::class, 'users_id');
+		return $this->hasOne(\App\Client::class, 'users_id');
 	}
 
-	public function comptables()
+	public function comptable()
 	{
-		return $this->hasMany(\App\Comptable::class, 'users_id');
+		return $this->hasOne(\App\Comptable::class, 'users_id');
 	}
 
-	public function gestionnaires()
+	public function gestionnaire()
 	{
-		return $this->hasMany(\App\Gestionnaire::class, 'users_id');
+		return $this->hasOne(\App\Gestionnaire::class, 'users_id');
 	}
 }
