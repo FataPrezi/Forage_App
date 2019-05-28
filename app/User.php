@@ -1,61 +1,93 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ * Date: Tue, 28 May 2019 09:07:45 +0000.
+ */
+
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class User extends Model
+/**
+ * Class User
+ * 
+ * @property int $id
+ * @property string $uuid
+ * @property string $firstname
+ * @property string $name
+ * @property string $telephone
+ * @property string $email
+ * @property \Carbon\Carbon $email_verified_at
+ * @property string $password
+ * @property int $roles_id
+ * @property string $deleted_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * 
+ * @property \App\Role $role
+ * @property \Illuminate\Database\Eloquent\Collection $administrateurs
+ * @property \Illuminate\Database\Eloquent\Collection $agents
+ * @property \Illuminate\Database\Eloquent\Collection $clients
+ * @property \Illuminate\Database\Eloquent\Collection $comptables
+ * @property \Illuminate\Database\Eloquent\Collection $gestionnaires
+ *
+ * @package App
+ */
+class User extends Eloquent
 {
-    public function role ()
-    {return $this->belongsTo('App\Role');}
+	use \Illuminate\Database\Eloquent\SoftDeletes;
 
-    public function agent ()
-    {return $this->hasOne('App\Agent');}
+	protected $casts = [
+		'roles_id' => 'int'
+	];
 
-    public function gestionnaire ()
-    {return $this->hasOne('App\Gestionnaire');}
+	protected $dates = [
+		'email_verified_at'
+	];
 
-    public function client ()
-    {return $this->hasOne('App\Client','users');}
+	protected $hidden = [
+		'password'
+	];
 
-    public function comptable ()
-    {return $this->hasOne('App\Comptable','users');}
+	protected $fillable = [
+		'uuid',
+		'firstname',
+		'name',
+		'telephone',
+		'email',
+		'email_verified_at',
+		'password',
+		'roles_id'
+	];
 
-}
+	public function role()
+	{
+		return $this->belongsTo(\App\Role::class, 'roles_id');
+	}
 
+	public function administrateurs()
+	{
+		return $this->hasMany(\App\Administrateur::class, 'users_id');
+	}
 
+	public function agents()
+	{
+		return $this->hasMany(\App\Agent::class, 'users_id');
+	}
 
-class User1 extends Authenticatable
-{
-    use Notifiable;
+	public function clients()
+	{
+		return $this->hasMany(\App\Client::class, 'users_id');
+	}
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+	public function comptables()
+	{
+		return $this->hasMany(\App\Comptable::class, 'users_id');
+	}
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+	public function gestionnaires()
+	{
+		return $this->hasMany(\App\Gestionnaire::class, 'users_id');
+	}
 }
