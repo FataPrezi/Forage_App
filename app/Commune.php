@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Commune
- * 
+ *
  * @property int $id
  * @property string $uuid
  * @property string $nom
@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @property string $deleted_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * 
+ *
  * @property \App\Arrondissement $arrondissement
  * @property \Illuminate\Database\Eloquent\Collection $villages
  *
@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class Commune extends Eloquent
 {
-	use \Illuminate\Database\Eloquent\SoftDeletes;
+	use \Illuminate\Database\Eloquent\SoftDeletes;use \App\Helpers\UuidForKey;
 
 	protected $casts = [
 		'arrondissements_id' => 'int'
