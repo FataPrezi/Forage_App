@@ -26,7 +26,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="login"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Utilisateurs</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Utilisateurs</span></a></li>
         <li><a href="register"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Compteurs</span></a></li>
         <li><a href="layout.login"><i class="fa fa-circle-o text-red"></i> <span>Gestion de la Facturation</span></a></li>
         <li><a href="register"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Clients</span></a></li>

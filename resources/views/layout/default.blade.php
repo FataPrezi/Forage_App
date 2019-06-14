@@ -39,17 +39,25 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<!-- ./wrapper -->
 <body class="hold-transition skin-blue sidebar-mini">
 
     <div class="wrapper">
 
+            <div>
          @include('layout.navbar')
+            </div>
+            <div>
          @include('layout.sidebar')
+            </div>
+
          @include('layout.main-content')
-         @include('layout.footer')
+
+         {{-- @include('layout.footer')  --}}
+
 
     </div>
-<!-- ./wrapper -->
+
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>

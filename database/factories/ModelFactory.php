@@ -76,7 +76,8 @@ $factory->define(App\Arrondissement::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Client::class, function (Faker\Generator $faker) {
     return [
-        'uuid' => $faker->uuid,
+        'uuid'=>Str::uuid(),
+        //'uuid' => $faker->uuid,
         'matricule' => $faker->word,
         'village_id' => function () {
              return factory(App\Village::class)->create()->id;
@@ -259,9 +260,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\Village::class, function (Faker\Generator $faker) {
+ $factory->define(App\Village::class, function (Faker\Generator $faker) {
     return [
-        'uuid' => $faker->uuid,
+        'uuid'=>Str::uuid(),
+        //'uuid' => $faker->uuid,
         'nom' => $faker->word,
         'chef_id' => $faker->randomNumber(),
         'communes_id' => function () {
@@ -269,4 +271,5 @@ $factory->define(App\Village::class, function (Faker\Generator $faker) {
         },
     ];
 });
+
 

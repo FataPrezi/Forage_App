@@ -16,7 +16,7 @@ class VillageController extends Controller
     public function index()
     {
         $villages=Village::all()->load(['chef.user','commune.arrondissement.departement.region'])->paginate(10);
-        return view('layout.village.index',compact('village'));
+        return view('layout.village.index',compact('villages'));
     }
 
     /**

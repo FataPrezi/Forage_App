@@ -50,5 +50,10 @@ class Village extends Eloquent
 	public function clients()
 	{
 		return $this->hasMany(\App\Client::class);
+    }
+
+    public function chef()
+	{
+		return $this->belobgsTo(\App\Client::class, 'chef_id');
 	}
 }
