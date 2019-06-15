@@ -110,7 +110,6 @@ $factory->define(App\Client::class, function (Faker\Generator $faker) {
     ];
 });
 
-
 $factory->define(App\Commune::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
@@ -239,22 +238,22 @@ $factory->define(App\Region::class, function (Faker\Generator $faker) {
 }); */
 
 $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
-    $id_comptable=App\Comptable::all()->random()->id;
     $id_type=App\Type::all()->random()->id;
+    $id_comptable=App\Comptable::all()->random()->id;
     $id_facture=App\Facture::all()->random()->id;
     return [
         'uuid' => $faker->uuid,
         'date' => $faker->dateTimeBetween($startDate = '-10 month', $endDate = 'now', $timezone = null),
         'montant' => $faker->randomFloat(),
-        'types_id' => function () use ($id_type) {
-            return $id_type;
-       },
-        'factures_id' => function () use ($id_facture) {
-            return $id_facture;
+        'types_id' => function () use($id_type){
+             return $id_type;
         },
-        'comptables_id' => function () use ($id_comptable) {
-            return $id_comptable;
-       },
+        'factures_id' => function () use($id_facture) {
+             return $id_facture;
+        },
+        'comptables_id' => function () use($id_comptable) {
+             return $id_comptable;
+        },
     ];
 });
 
