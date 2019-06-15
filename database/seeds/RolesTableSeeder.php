@@ -10,7 +10,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+
         $role1=App\Role::firstOrCreate(['name'=>'Agent'],['uuid'=>(string)Str::uuid()]);
         $role2=App\Role::firstOrCreate(['name'=>'Client'],['uuid'=>(string)Str::uuid()]);
         $role3=App\Role::firstOrCreate(['name'=>'Gestionnaire'],['uuid'=>(string)Str::uuid()]);

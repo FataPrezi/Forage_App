@@ -16,10 +16,34 @@ Route::get('/', function () {
 });
 */
  Route::get('/test', function () {
-    return view('layout.village.index');
+    return view('layout.default');
 });
+
+//  Auth::routes();
+
+ //Route::get('/village', 'VillageController@index');
+
+
+Route::resource('villages', 'VillageController');
+
+/* Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('villages', 'VillageController'); */
+
+/* Route::get('/', function () {
+    return view('welcome');
+}); */
+
+/* Route::get('/test', function () {
+    return view('layout.form');
+}); */
+
+/* Route::get('/test1', function () {
+    return "HELLO";
+}); */
 
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
 
-Route::resource('Village', 'VillageController');
+/*Route::resource('Village', 'VillageController');*/

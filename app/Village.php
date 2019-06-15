@@ -54,6 +54,6 @@ class Village extends Eloquent
 
     public function chef()
 	{
-		return $this->belobgsTo(\App\Client::class, 'chef_id');
+		return $this->belongsTo(\App\Client::class, 'chef_id');
 	}
 }

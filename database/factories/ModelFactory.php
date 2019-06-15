@@ -74,7 +74,7 @@ $factory->define(App\Arrondissement::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Client::class, function (Faker\Generator $faker) {
+/* $factory->define(App\Client::class, function (Faker\Generator $faker) {
     return [
         'uuid'=>Str::uuid(),
         //'uuid' => $faker->uuid,
@@ -90,6 +90,26 @@ $factory->define(App\Client::class, function (Faker\Generator $faker) {
         },
     ];
 });
+ */
+$factory->define(App\Client::class, function (Faker\Generator $faker) {
+    $id_village=App\Village::get()->random()->id;
+    $id_gestionnaire=App\Gestionnaire::get()->random()->id;
+    $id_role=App\Role::where('name','Client')->first()->id;
+    return [
+        //'uuid' => $faker->uuid,
+        'matricule' => "CLI".$faker->word,
+        'village_id' => function () use($id_village) {
+             return $id_village;
+        },
+        'gestionnaires_id' => function () use ($id_gestionnaire) {
+             return $id_gestionnaire;
+        },
+        'users_id' => function () use($id_role){
+             return factory(App\User::class)->create(["roles_id"=>$id_role])->id;
+        },
+    ];
+});
+
 
 $factory->define(App\Commune::class, function (Faker\Generator $faker) {
     return [
@@ -201,7 +221,7 @@ $factory->define(App\Region::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Reglement::class, function (Faker\Generator $faker) {
+/* $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
         'date' => $faker->dateTimeBetween(),
@@ -215,6 +235,26 @@ $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
         'comptables_id' => function () {
              return factory(App\Comptable::class)->create()->id;
         },
+    ];
+}); */
+
+$factory->define(App\Reglement::class, function (Faker\Generator $faker) {
+    $id_comptable=App\Comptable::all()->random()->id;
+    $id_type=App\Type::all()->random()->id;
+    $id_facture=App\Facture::all()->random()->id;
+    return [
+        'uuid' => $faker->uuid,
+        'date' => $faker->dateTimeBetween($startDate = '-10 month', $endDate = 'now', $timezone = null),
+        'montant' => $faker->randomFloat(),
+        'types_id' => function () use ($id_type) {
+            return $id_type;
+       },
+        'factures_id' => function () use ($id_facture) {
+            return $id_facture;
+        },
+        'comptables_id' => function () use ($id_comptable) {
+            return $id_comptable;
+       },
     ];
 });
 

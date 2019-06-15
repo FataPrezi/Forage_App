@@ -29,9 +29,6 @@
                         </th>
                       </thead>
                       <tbody>
-                            {{-- @if ($villages = "") --}}
-                            @php ($villages = "") @endphp
-                            @if ($villages != null)
                            @foreach ($villages as $village)
 
                         <tr>
@@ -53,11 +50,9 @@
 
                         </tr>
                         @endforeach
-                        @endif
-                        {{--   @endif --}}
                       </tbody>
                     </table>
-                     {{-- {{ $villages->links() }} --}}
+                      {{-- {{ $villages->links() }} --}}
 
                   </div>
                 </div>
