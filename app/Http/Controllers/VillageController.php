@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Village;
 use Illuminate\Http\Request;
 use App\Helpers\PCollection;
+use Yajra\Datatables\Datatables;
 
 
 
 
 class VillageController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +25,11 @@ class VillageController extends Controller
         return view('village.index',compact('villages'));
     }
 
+    public function list(Request $request)
+    {
+        $villages=Village::with('chef.user','commune.arrondissement.departement.region')->get();
+        return Datatables::of($villages)->make(true);
+    }
     /**
      *
      * Show the form for creating a new resource.

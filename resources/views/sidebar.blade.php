@@ -25,11 +25,13 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+        {{-- <li class="header">MAIN NAVIGATION</li> --}}
+        <li><a href="/devweb/public/"><i class="fa fa-circle-o text-red"></i> <span>Accueil</span></a></li>
+        <li><a href="/devweb/public/villages"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Villages</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Utilisateurs</span></a></li>
-        <li><a href="register"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Compteurs</span></a></li>
-        <li><a href="layout.login"><i class="fa fa-circle-o text-red"></i> <span>Gestion de la Facturation</span></a></li>
-        <li><a href="register"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Clients</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Compteurs</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Gestion de la Facturation</span></a></li>
+        <li><a href="/devweb/public/clients"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Clients</span></a></li>
         <!-- <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>

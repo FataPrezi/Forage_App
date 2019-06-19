@@ -1,4 +1,4 @@
-@extends('layout.default')
+@extends('default')
 @section('village.content')
 
 
@@ -52,7 +52,7 @@
                         @endforeach
                       </tbody>
                     </table>
-                      {{-- {{ $villages->links() }} --}}
+                       {{ $villages->links() }}
 
                   </div>
                 </div>
