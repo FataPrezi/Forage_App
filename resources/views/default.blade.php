@@ -100,6 +100,7 @@
 <script src="{{asset('asset/dist/js/adminlte.min.js')}}"></script>
 
 <script type="text/javascript" src="{{asset('asset/DataTables/datatables.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('asset/qrcodejs/qrcode.min.js')}}"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('asset/dist/js/pages/dashboard.js')}}"></script>

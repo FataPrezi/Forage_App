@@ -16,16 +16,22 @@ Route::get('/', function () {
 });
 */
  Route::get('/', function () {
-    return view('default-content');
+    return view('login');
 });
+
 
 
  Auth::routes();
 
+ Route::get('/default', function () {
+    return view('default-content');
+});
+ Route::get('/reglements/list', 'ReglementController@list')->name('reglements.list'); //route pour l'affichage des datatables
+ Route::get('/reglements/create', 'ReglementController@create')->name('reglements.create');
+ Route::resource('reglements', 'ReglementController');
+
  Route::get('/clients/selectvillage', function () {
     return view('client.selectvillage');})->name('clients.selectvillage');
-
-
  //Route::get('/village', 'VillageController@index');
 
 Route::get('/villages/list', 'VillageController@list')->name('villages.list');
@@ -34,6 +40,12 @@ Route::resource('villages', 'VillageController');
 Route::get('/clients/create', 'ClientController@create')->name('clients.create');
 Route::get('/clients/list', 'ClientController@list')->name('clients.list'); //route pour l'affichage des datatables
 Route::resource('clients', 'ClientController');
+Route::get('/consommations/list/{abonnement?}','ConsommationController@list')->name('consommations.list');//route pour consommation
+Route::get('/abonnements/selectcompteur', 'AbonnementController@selectcompteur')->name('abonnements.selectcompteur');//route pour abonnement
+Route::get('/abonnements/selectclient', 'AbonnementController@selectclient')->name('abonnements.selectclient');//route pour abonnement
+
+
+
 
 
 //Route::get('/clients/create', 'ClientController@create')->name('clients.create');

@@ -3,7 +3,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div class="user-panel">
+      {{-- <div class="user-panel">
         <div class="pull-left image">
           <img src="asset/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
@@ -11,11 +11,11 @@
           <p>Moustapha DIABANG</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
-      </div>
+      </div> --}}
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <input type="text" name="q" class="form-control" placeholder="Rechercher...">
           <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
@@ -26,13 +26,17 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         {{-- <li class="header">MAIN NAVIGATION</li> --}}
-        <li><a href="/devweb/public/"><i class="fa fa-circle-o text-red"></i> <span>Accueil</span></a></li>
-        <li><a href="/devweb/public/villages"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Villages</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Utilisateurs</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Compteurs</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Gestion de la Facturation</span></a></li>
-        <li><a href="/devweb/public/clients"><i class="fa fa-circle-o text-red"></i> <span>Gestion des Clients</span></a></li>
-        <!-- <li class="active treeview">
+        <li><a href="/devweb/public"><i class="fa fa-circle-o text-aqua"></i> <span>ACCUEIL</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>UTILISATEURS</span></a></li>
+        <li><a href="/devweb/public/clients"><i class="fa fa-circle-o text-aqua"></i> <span>CLIENTS</span></a></li>
+        <li><a href="/devweb/public/villages"><i class="fa fa-circle-o text-aqua"></i> <span>VILLAGES</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>ABONNEMENTS</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>CONSOMMATIONS</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>COMPTEURS</span></a></li>
+        <li><a href="/devweb/public/reglements"><i class="fa fa-circle-o text-aqua"></i> <span>REGLEMENTS</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>FACTURATION</span></a></li>
+
+            <!-- <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
@@ -128,7 +132,7 @@
           <a href="pages/calendar.html">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
+              <small class="label pull-right bg-aqua">3</small>
               <small class="label pull-right bg-blue">17</small>
             </span>
           </a>

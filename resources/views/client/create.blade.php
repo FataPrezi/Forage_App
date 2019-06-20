@@ -1,5 +1,6 @@
 @extends('default')
 @section('client.create.content')
+<div class="login-box">
 <div class="content">
     <div class="container-fluid"style='margin-right: auto; margin-left: auto' >
         <div class="card">
@@ -91,7 +92,7 @@
                         </label>
                     </div> --}}
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Valider</button>
                 </form>
                 <div class="row justify-content-center">
                     @if ($errors->any())
@@ -108,5 +109,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

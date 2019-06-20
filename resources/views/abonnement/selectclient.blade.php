@@ -1,6 +1,5 @@
-@extends('default')
-
- @section('reglement.content')
+@extends('layout.default')
+@section('content')
 
 
 <div class="content">
@@ -9,32 +8,26 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title "><b> SENFORAGE Reglements </b></h4>
-                  <p class="card-category">  {{--<b> Clients </b> --}}
-                      <a href="{{route('reglements.create')}}"><div class="btn btn-warning"> Ajouter <i class="material-icons">Nouveau Reglement</i></div></a>
+                  <h4 class="card-title ">SENFORAGE</h4>
+                  <p class="card-category"> Selection du client
+                      {{-- <a href="{{route('clients.selectvillage')}}"><div class="btn btn-warning">Nouveau Client <i class="material-icons">add</i></div></a>  --}}
                   </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-reglements">
+                    <table class="table" id="table-clients">
                       <thead class=" text-primary">
                         <th>
                           ID
                         </th>
                         <th>
-                          Date
+                          Nom
                         </th>
                         <th>
-                         Montant
-                        </th>
-                         <th>
-                          Type paiement
+                            Prenom
                         </th>
                         <th>
-                            Facture ID
-                        </th>
-                        <th>
-                        Comptable
+                          Email
                         </th>
                         <th>
                           Action
@@ -61,17 +54,15 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-reglements').DataTable( {
+          $('#table-clients').DataTable( {
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('reglements.list')}}",
+            "ajax": "{{route('clients.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'date', name: 'date' },
-                    { data: 'montant', name: 'montant' },
-                    { data: 'type.name', name: 'type.name' },
-                    { data: 'factures_id', name: 'factures_id' },
-                    { data: 'comptable.matricule', name: 'comptable.matricule' },
+                    { data: 'user.name', name: 'user.name' },
+                    { data: 'user.firstname', name: 'user.firstname' },
+                    { data: 'user.email', name: 'user.email' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -79,12 +70,10 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('reglements.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('reglements.destroy',':id')!!}".replace(':id', data.id);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
+                        url_e =  "{!! route('abonnements.selectcompteur','client=:id')!!}".replace(':id', data.id);
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>';
                         },
-                        "targets": 6
+                        "targets": 4
                         },
                     // {
                     //     "data": null,
@@ -98,8 +87,7 @@
 
           });
       });
-
       </script>
-@endpush
 
 
+      @endpush

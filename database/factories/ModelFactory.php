@@ -224,6 +224,7 @@ $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
         'uuid' => $faker->uuid,
         'date' => $faker->dateTimeBetween($startDate = '-10 month', $endDate = 'now', $timezone = null),
         'montant' => $faker->randomFloat(),
+        //'montant' => $faker->numberBetween(1000,1000000),
         'types_id' => function () use($id_type){
              return $id_type;
         },
