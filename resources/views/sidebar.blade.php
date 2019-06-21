@@ -30,7 +30,7 @@
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>UTILISATEURS</span></a></li>
         <li><a href="/devweb/public/clients"><i class="fa fa-circle-o text-aqua"></i> <span>CLIENTS</span></a></li>
         <li><a href="/devweb/public/villages"><i class="fa fa-circle-o text-aqua"></i> <span>VILLAGES</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>ABONNEMENTS</span></a></li>
+        <li><a href="/devweb/public/abonnements"><i class="fa fa-circle-o text-aqua"></i> <span>ABONNEMENTS</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>CONSOMMATIONS</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>COMPTEURS</span></a></li>
         <li><a href="/devweb/public/reglements"><i class="fa fa-circle-o text-aqua"></i> <span>REGLEMENTS</span></a></li>

@@ -12,6 +12,8 @@
     @yield('reglement.content')
     @yield('reglement.create.content')
     @yield('login')
+    @yield('abonnement.content')
+    @yield('content')
 </div>
 
 

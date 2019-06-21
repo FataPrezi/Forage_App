@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CompteursTableSeeder extends Seeder
+class AbonnementsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class CompteursTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\Compteur::class,15)->create();
+        factory(App\Abonnement::class,20)->create();
     }
 }

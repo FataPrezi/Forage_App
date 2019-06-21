@@ -1,5 +1,5 @@
-@extends('layout.default')
-@section('content')
+@extends('default')
+@section('abonnement.content')
 
 
 <div class="content">

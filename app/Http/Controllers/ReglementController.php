@@ -70,14 +70,14 @@ public function list(Request $request)
         ]);
         $newreglement->save(); */
 
-          Reglement::create ([
+          /* Reglement::create ([
             'facture_id' => input('facture_id'),
             'montant' => input('montant'),
             'type' => input auth()->id(),
-            'comptable' => input('comptable')
+            'comptable' => input('comptable'),
 
 
-        ]);
+        ]); */
 
 
        /*  $facture_ids=$request->get('facture_id');

@@ -2,31 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Abonnement;
+use App\Compteur;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class AbonnementController extends Controller
+class CompteurController extends Controller
 {
-    public function list(Request $request)
+    public function listfree(Request $request)
     {
-         $abonnements=Abonnement::get()->load('client.user','compteur');
-        return Datatables::of($abonnements)->make(true);
-
-    }
-
-
-    public function selectclient(Request $request)
-    {
-         $abonnements=Abonnement::get()->load('client');
-        return Datatables::of($abonnements)->make(true);
-
-    }
-
-    public function selectcompteur(Request $request)
-    {
-         $abonnements=Abonnement::get()->load('client');
-        return Datatables::of($abonnements)->make(true);
+         $compteurs=Compteur::get()->load();
+        return Datatables::of($compteurs)->make(true);
 
     }
     /**
@@ -63,10 +48,10 @@ class AbonnementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\Compteur  $compteur
      * @return \Illuminate\Http\Response
      */
-    public function show(Abonnement $abonnement)
+    public function show(Compteur $compteur)
     {
         //
     }
@@ -74,10 +59,10 @@ class AbonnementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\Compteur  $compteur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Abonnement $abonnement)
+    public function edit(Compteur $compteur)
     {
         //
     }
@@ -86,10 +71,10 @@ class AbonnementController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\Compteur  $compteur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Abonnement $abonnement)
+    public function update(Request $request, Compteur $compteur)
     {
         //
     }
@@ -97,10 +82,10 @@ class AbonnementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\Compteur  $compteur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Abonnement $abonnement)
+    public function destroy(Compteur $compteur)
     {
         //
     }

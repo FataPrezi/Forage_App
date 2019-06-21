@@ -10,10 +10,15 @@ class ClientController extends Controller
 {
      public function list(Request $request)
    {
-       $clients=Client::with('user')->get();
+        $clients=Client::with('user')->get();
        return Datatables::of($clients)->make(true);
-   }
 
+   }
+/* public function list(Request $request)
+    {
+        $villages=Village::with('chef.user','commune.arrondissement.departement.region')->get();
+        return Datatables::of($villages)->make(true);
+    } */
 
     /**
      * Display a listing of the resource.
