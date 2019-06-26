@@ -10,10 +10,10 @@
                       Dashboard
                       <small></small>
                     </h1>
-                    <ol class="breadcrumb">
+                   {{--  <ol class="breadcrumb">
                       <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
                       <li class="active">Dashboard</li>
-                    </ol>
+                    </ol> --}}
                   </section>
       <!-- Small boxes (Stat box) -->
       <div class="row">

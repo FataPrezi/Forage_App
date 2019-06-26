@@ -6,7 +6,9 @@
  */
 
 namespace App;
-
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
@@ -34,7 +36,8 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  *
  * @package App
  */
-class User extends Eloquent
+class User extends Authenticable
+//class User extends Eloquent
 {
     use \Illuminate\Database\Eloquent\SoftDeletes;
     use \App\Helpers\UuidForKey;
@@ -90,5 +93,15 @@ class User extends Eloquent
 	public function gestionnaire()
 	{
 		return $this->hasOne(\App\Gestionnaire::class, 'users_id');
+    }
+
+    public function hasRole($rolename) //Middleware
+	{
+		return $this->role->name==$rolename;
+    }
+
+    public function hasAnyRoles($roles) //Middleware avec utilisation de tableau
+	{
+		return in_array($this->role->name, $roles);
 	}
 }

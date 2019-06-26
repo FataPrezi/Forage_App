@@ -37,6 +37,7 @@ class AbonnementController extends Controller
     public function index()
     {
         //
+        return view('abonnement.index');
     }
 
     /**
@@ -47,6 +48,7 @@ class AbonnementController extends Controller
     public function create()
     {
         //
+        return view('abonnement.create');
     }
 
     /**

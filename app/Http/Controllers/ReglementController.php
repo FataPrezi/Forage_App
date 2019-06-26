@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Reglement;
+use App\Type;
 use Illuminate\Http\Request;
 use App\Helpers\PCollection;
 use Yajra\Datatables\Datatables;
 use App\Http\Controllers\Validator;
+use Illuminate\Database\Eloquent\Model;
 
 class ReglementController extends Controller
 {
@@ -56,35 +58,41 @@ public function list(Request $request)
         $validatedData = $request->validate([
             'facture_id' => 'required',
             'montant' => 'required|numeric',
+            'type' => 'required',
             'comptable' => 'required',
 
         ]);
+       /*  $types=Type::get();
+        return view('reglement.create',compact('types'));
+ */
+         $reglement=new Reglement;
+         //$reglement->date = request ('date');
+         $reglement->factures_id = request ('facture_id');
+         $reglement->montant = request ('montant');
+         $reglement->types_id = request('type');
+        $reglement->comptables_id = request ('comptable');
+            $reglement->save();
+            //return "nouveau reglement ajouté avec succès"
 
-       /*  $newreglement=new Reglement([
 
-            $facture = $request->input('facture_id'),
-            $montant = $request->input('montant'),
-            $type = $request->input('type'),
-            $comptable = $request->input('comptable'),
+
+         /*  $newreglement = new Reglement([
+
+            'facture' => $request('facture_id'),
+            'montant' => $request->('montant'),
+            'type' => $request->('type'),
+            'comptable' = $request->('comptable')
 
         ]);
         $newreglement->save(); */
 
-          /* Reglement::create ([
-            'facture_id' => input('facture_id'),
-            'montant' => input('montant'),
-            'type' => input auth()->id(),
-            'comptable' => input('comptable'),
-
-
+       /*  $newreglement = Reglement::create ([
+            'facture' => request('facture_id'),
+             'montant' => request->('montant'),
+            'type' => request->('type'),
+            'comptable' => request->('comptable')
         ]); */
 
-
-       /*  $facture_ids=$request->get('facture_id');
-        $montants=$request->get('montant');
-        $comptables=$request->get('ccomptable');
-        // $types=$request->get('type');
-        $request->save(); */
 
      }
 

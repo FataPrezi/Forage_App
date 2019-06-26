@@ -12,7 +12,12 @@ use Yajra\Datatables\Datatables;
 
 class VillageController extends Controller
 {
-
+    public function list(Request $request)
+    {
+         //$villages=Village::with('chef.user','commune.arrondissement.departement.region')->get();
+         $villages=Village::with('chef.user','commune.arrondissement.departement.region')->get();
+        return Datatables::of($villages)->make(true);
+    }
 
     /**
      * Display a listing of the resource.
@@ -21,15 +26,13 @@ class VillageController extends Controller
      */
     public function index()
     {
+        /* $villages=Village::all()->load(['chef.user','commune.arrondissement.departement.region'])->paginate(10); */
         $villages=Village::all()->load(['chef.user','commune.arrondissement.departement.region'])->paginate(10);
-        return view('village.index',compact('villages'));
+       return view('village.index',compact('villages'));
+       //return view('village.index');
     }
 
-    public function list(Request $request)
-    {
-        $villages=Village::with('chef.user','commune.arrondissement.departement.region')->get();
-        return Datatables::of($villages)->make(true);
-    }
+
     /**
      *
      * Show the form for creating a new resource.

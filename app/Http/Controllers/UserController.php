@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Compteur;
+use App\User;
 use Illuminate\Http\Request;
+use App\Helpers\PCollection;
 use Yajra\Datatables\Datatables;
+use App\Http\Controllers\Validator;
 
-class CompteurController extends Controller
+
+class UserController extends Controller
 {
-    public function listfree(Request $request)
-    {
-           /*  $compteurs=Compteur::get()->load();
-        return Datatables::of($compteurs)->make(true); */
+    public function list(Request $request)
 
-         $compteurs=Compteur::with('abonnement')->get();
-        return Datatables::of($compteurs)->make(true);
+{
+    $users=User::with('role')->get();
+    //$users=User::all();
+   return Datatables::of($users)->make(true);
 
-        /*  $compteurs=Compteur::get()->paginate(10);
-        return view('compteur.index',compact('compteurs')); */
+}
 
-    }
     /**
      * Display a listing of the resource.
      *
@@ -27,12 +27,9 @@ class CompteurController extends Controller
      */
     public function index()
     {
-        //
-        return view('compteur.index');
-
-
-
-
+        return view('user.index');
+       /*  $users=User::get()->paginate(10);
+        return view('user.index',compact('users')); */
 
     }
 
@@ -60,10 +57,10 @@ class CompteurController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Compteur  $compteur
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Compteur $compteur)
+    public function show(User $user)
     {
         //
     }
@@ -71,10 +68,10 @@ class CompteurController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Compteur  $compteur
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Compteur $compteur)
+    public function edit(User $user)
     {
         //
     }
@@ -83,10 +80,10 @@ class CompteurController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Compteur  $compteur
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Compteur $compteur)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -94,10 +91,10 @@ class CompteurController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Compteur  $compteur
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Compteur $compteur)
+    public function destroy(User $user)
     {
         //
     }

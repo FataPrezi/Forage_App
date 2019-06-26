@@ -3,20 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Consommation;
+use App\Abonnement;
 use Illuminate\Http\Request;
+use App\Helpers\PCollection;
+use Yajra\Datatables\Datatables;
+use App\Http\Controllers\Validator;
 
 class ConsommationController extends Controller
 {
-    public function list(Abonnement $abonnement=null)
-   {
-       if($abonnement==null){
-           $consommations=\App\Consommation::with('compteur.abonnement.client.user')->get();
-           return DataTables::of($consommations)->make(true);
-       }else{
-           $consommations=$abonnement->compteur->consommations->load('compteur.abonnement.client.user');
-           return DataTables::of($consommations)->make(true);
-       }
-   }
+     public function list(Abonnement $abonnement=null)
+    {
+
+          if($abonnement==null){
+            $consommations=\App\Consommation::with('compteur.abonnement.client.user')->get();
+            return DataTables::of($consommations)->make(true);
+        }else{
+            $consommations=$abonnement->compteur->consommations->load('compteur.abonnement.client.user');
+            return DataTables::of($consommations)->make(true);
+        }
+    }
+
+
 
     /**
      * Display a listing of the resource.
@@ -26,6 +33,9 @@ class ConsommationController extends Controller
     public function index()
     {
         //
+
+        $consommations=Consommation::get()->paginate(10);
+        return view('consommation.index',compact('consommations'));
     }
 
     /**

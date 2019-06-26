@@ -27,14 +27,14 @@
       <ul class="sidebar-menu" data-widget="tree">
         {{-- <li class="header">MAIN NAVIGATION</li> --}}
         <li><a href="/devweb/public"><i class="fa fa-circle-o text-aqua"></i> <span>ACCUEIL</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>UTILISATEURS</span></a></li>
+        <li><a href="/devweb/public/users"><i class="fa fa-circle-o text-aqua"></i> <span>UTILISATEURS</span></a></li>
         <li><a href="/devweb/public/clients"><i class="fa fa-circle-o text-aqua"></i> <span>CLIENTS</span></a></li>
         <li><a href="/devweb/public/villages"><i class="fa fa-circle-o text-aqua"></i> <span>VILLAGES</span></a></li>
         <li><a href="/devweb/public/abonnements"><i class="fa fa-circle-o text-aqua"></i> <span>ABONNEMENTS</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>CONSOMMATIONS</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>COMPTEURS</span></a></li>
+        <li><a href="/devweb/public/consommations"><i class="fa fa-circle-o text-aqua"></i> <span>CONSOMMATIONS</span></a></li>
+        <li><a href="/devweb/public/compteurs"><i class="fa fa-circle-o text-aqua"></i> <span>COMPTEURS</span></a></li>
         <li><a href="/devweb/public/reglements"><i class="fa fa-circle-o text-aqua"></i> <span>REGLEMENTS</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>FACTURATION</span></a></li>
+        <li><a href="/devweb/public/factures"><i class="fa fa-circle-o text-aqua"></i> <span>FACTURATION</span></a></li>
 
             <!-- <li class="active treeview">
           <a href="#">

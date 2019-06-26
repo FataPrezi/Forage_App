@@ -16,6 +16,11 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
+                        @if (session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                     <table class="table" id="table-clients">
                       <thead class=" text-primary">
                         <th>

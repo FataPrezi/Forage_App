@@ -1,7 +1,5 @@
 @extends('default')
-
- @section('content')
-
+@section('content')
 
 <div class="content">
         <div class="container-fluid">
@@ -9,36 +7,30 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title "><b> SENFORAGE Consommations </b></h4>
-                  <p class="card-category">  {{--<b> Clients </b> --}}
-                      <a href="{{route('reglements.create')}}"><div class="btn btn-warning"> Ajouter <i class="material-icons">Nouvelle Consommation</i></div></a>
+                  <h4 class="card-title ">SENFORAGE</h4>
+                  <p class="card-category"> Selection du compteur pour le client
+                      {{-- <a href="{{route('abonnements.selectclient')}}"><div class="btn btn-warning">Selection du Client <i class="material-icons">add</i></div></a>  --}}
                   </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-consommations">
+                    <table class="table" id="table-compteurs">
                       <thead class=" text-primary">
                         <th>
                           ID
                         </th>
                         <th>
-                          Date
+                          UUID
                         </th>
                         <th>
-                         Valeur
-                        </th>
-                         <th>
-                          Compteur
+                            NSERIE
                         </th>
                         <th>
-                            Nom Client
+                          Date Creation
                         </th>
                         <th>
-                            Prenom Client
-                        </th>
-                        <th>
-                        Agent
-                        </th>
+                            Proprietaire
+                          </th>
                         <th>
                           Action
                           </th>
@@ -64,31 +56,31 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-clients').DataTable( {
+          $('#table-compteurs').DataTable( {
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('consommations.list')}}",
+            "ajax": "{{route('compteurs.listfree')}}",
             columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'date', name: 'date' },
-                    { data: 'valeur', name: 'valeur' },
-                    { data: 'compteurs_id', name: 'compteurs_id' },
-                    { data: 'compteur.abonnement.client.user.name', name: 'compteur.abonnement.client.user.name' },
-                    { data: 'compteur.abonnement.client.user.firstname', name: 'compteur.abonnement.client.user.firstname' },
-                    { data: 'agents_id', name: 'agents_id' },
+                    { data: 'uuid', name: 'uuid' },
+                    { data: 'numero_serie', name: 'numero_serie' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'abonnement.id', name: 'abonnement.id' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
                 "columnDefs": [
-                        {
+                    {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('reglements.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('reglements.destroy',':id')!!}".replace(':id', data.id);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
-                        },
-                        "targets": 7
+                            /*  <?php
+
+$client = "";
+
+?> */
+                        url_e =  "{!! route('abonnements.create',['compteur'=>'id-cptr','client'=>'idc'])!!}".replace('id-cptr', data.id).replace('idc',$client->id);
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'; },
+                        "targets": 5
                         },
                     // {
                     //     "data": null,
@@ -102,8 +94,7 @@
 
           });
       });
-
       </script>
-@endpush
 
 
+      @endpush

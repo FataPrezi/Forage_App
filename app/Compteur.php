@@ -53,5 +53,33 @@ class Compteur extends Eloquent
 	public function consommations()
 	{
 		return $this->hasMany(\App\Consommation::class, 'compteurs_id');
+    }
+
+    public function getNewConsommationsAttribute()//retourne les consommations sans facture
+	{
+		return $this->consommations->where('facture','=',null);
+    }
+
+    public function generateFacture()//generation de facture
+	{
+        $nouvelles_conso=$this->getNewConsommationsAttribute();
+
+        if ($nouvelles_conso->count()>0)
+        {
+          $facture=new \App\Facture; //creation d'une nouvelle facture
+          $facture->details="generee automatiquement";
+          $valeur=0;
+
+          foreach($nouvelles_conso as $conso)
+          {
+              $valeur=$valeur+$conso->valeur;
+          }
+              $facture->valeur_totale_consommee=$valeur;
+              $facture->montant=$valeur*3;
+              $facture->save();
+              $facture->saveMany($nouvelles_conso);
+              return $facture;
+        }
+              return null;
 	}
 }

@@ -10,7 +10,7 @@ class ClientController extends Controller
 {
      public function list(Request $request)
    {
-        $clients=Client::with('user')->get();
+         $clients=Client::with('user')->get();
        return Datatables::of($clients)->make(true);
 
    }
@@ -115,5 +115,9 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         //
+        //return $client;
+        $client->delete();
+        $message ='suppression de '.$client->user->name.' '.$client->user->firstname.'effectuée avec succes';
+        return redirect()->route('clients.index')->with(compact('message'));
     }
 }

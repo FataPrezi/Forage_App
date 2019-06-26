@@ -1,103 +1,105 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Registration Page</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{asset('asset/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('asset/bower_components/font-awesome/css/font-awesome.min.css')}}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{asset('asset/bower_components/Ionicons/css/ionicons.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('asset/dist/css/AdminLTE.min.css')}}">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{{asset('asset/plugins/iCheck/square/blue.css')}}">
+@extends('default')
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+ @section('content')
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<body class="hold-transition register-page">
 
-<div class="register-box">
-  <div class="register-logo">
-    <a href="../../index2.html"><b>SEN FORAGE</b></a>
-  </div>
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title "><b> SENFORAGE Utilisateurs </b></h4>
+                  <p class="card-category">  {{--<b> Clients </b> --}}
+                      <a href="{{route('users.create')}}"><div class="btn btn-warning"> Ajouter <i class="material-icons">Nouveau Utilisateur</i></div></a>
+                  </p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table" id="table-users">
+                      <thead class=" text-primary">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                         Nom
+                        </th>
+                        <th>
+                         Prenom
+                        </th>
+                        <th>
+                           Telephone
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                           Role
+                        </th>
+                        <th>
+                          Action
+                          </th>
+                      </thead>
+                      <tbody>
 
-  <div class="register-box-body">
-    <p class="login-box-msg"><b>Nouvelle inscription<b></p>
+                      </tbody>
 
-    <form action="../../index.html" method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Nom">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retaper password">
-        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Je suis <a href="#">d'accord</a>
-            </label>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+
+            </div>
           </div>
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Valider</button>
-        </div>
-        <!-- /.col -->
       </div>
-    </form>
+      @endsection
 
-    <div class="social-auth-links text-center">
-      <p>- OU -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Se connecter avec
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Se connecter avec
-        Google+</a>
-    </div>
+      @push('scripts')
+      <script type="text/javascript">
+      $(document).ready(function () {
+          $('#table-users').DataTable( {
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{{route('users.list')}}",
+            columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'firstname', name: 'firstname' },
+                    { data: 'telephone', name: 'telephone' },
+                    { data: 'email', name: 'email' },
+                    { data: 'role.name', name: 'role.name' },
+                    { data: null ,orderable: false, searchable: false}
 
-    <a href="login.html" class="text-center">Je suis déjà membre</a>
-  </div>
-  <!-- /.form-box -->
-</div>
-<!-- /.register-box -->
+                ],
+                "columnDefs": [
+                        {
+                        "data": null,
+                        "render": function (data, type, row) {
+                        url_e =  "{!! route('reglements.edit',':id')!!}".replace(':id', data.id);
+                        url_d =  "{!! route('reglements.destroy',':id')!!}".replace(':id', data.id);
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
+                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
+                        },
+                        "targets": 6
+                        },
+                    // {
+                    //     "data": null,
+                    //     "render": function (data, type, row) {
+                    //         url =  "{!! route('clients.edit',':id')!!}".replace(':id', data.id);
+                    //         return check_status(data,url);
+                    //     },
+                    //     "targets": 1
+                    // }
+                ],
 
-<!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- iCheck -->
-<script src="../../plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
-</script>
-</body>
-</html>
+          });
+      });
+
+      </script>
+@endpush
+
+

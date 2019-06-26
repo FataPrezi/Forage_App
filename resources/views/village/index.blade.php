@@ -1,4 +1,4 @@
-@extends('default')
+ @extends('default')
 @section('village.content')
 
 
@@ -41,9 +41,13 @@
                             Commune de {{$village->commune->nom}}
 
                           </td>
+                           {{-- <td>
+                                 {{$village->chef->user->name."  ".$village->chef->user->firstname}}
+                          </td> --}}
                           <td>
-                                {{$village->chef->user->name."  ".$village->chef->user->firstname}}
-                          </td>
+                            {{$village->chef['users_id'] }}
+                     </td>
+
                           <td>
                               <a class="btn btn-primary" href={{route('villages.show',['village'=>$village->id])}}><i class="material-icons">edit</i> </a>
                           </td>

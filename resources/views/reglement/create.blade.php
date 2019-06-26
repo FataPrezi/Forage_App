@@ -1,5 +1,8 @@
 @extends('default')
 @section('reglement.create.content')
+<?php use App\Type; ?>
+
+
 <div class="login-box">
 <div class="content">
     <div class="container-fluid"style='margin-right: auto; margin-left: auto' >
@@ -33,6 +36,7 @@
                         </small>
                     </div>--}}
                     <div class="form-group">
+
                         <label for="facture_id">Facture ID</label>
                         <input type="text" name="facture_id" class="form-control" id="facture_id" aria-describedby="emailHelp" placeholder="Enter Facture ID">
                         <small id="emailHelp" class="form-text text-muted">
@@ -58,28 +62,27 @@
                             @endif
                         </small>
                     </div>
-                    <div class="form-group">
-                        <label for="type" name="type">Type Paiement</label>
-                        <select name="type">
-                        <option value="espece" selected> Espece</option>
-                        <option value="cheque"> Cheque</option>
-                        <option value="visa"> Visa</option>
-                        <option value="wari"> Wari</option>
-                        <option value="orange-money"> Orange Money</option>
-                        <option value="virement"> Virement</option>
-                        </select>
 
-                    </div>
-                    {{-- <div class="form-group">
-                        <label for="exampleInputEmail1">ID Client</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">
-                            @if ($errors->has('email'))
-                            @foreach ($errors->get('email') as $message)
-                            <p class="text-danger">{{ $message }}</p>
-                            @endforeach
-                            @endif
-                        </small>
+                                       <div class="form-group">
+                            <label for="type">Type Paiement</label><br>
+                            <select class="textWidth form-control" name="type" id="type" type="text">
+                                <option disabled selected> -- Choisir une option -- </option>
+                                  <option value="Espece"> Espece</option>
+                                  <option value="Cheque"> Cheque</option>
+                                  <option value="Visa"> Visa</option>
+                                  <option value="Wari"> Wari</option>
+                                  <option value="Virement"> Virement</option>
+                                  <option value="Orange-Money"> Orange-Money</option>
+
+                            </select>
+                        </div>
+                         {{-- <div class="form-group">
+                        <label for="type" name="type">Type Paiement</label>
+                    <select name="type" id="type">
+                        @foreach($types as $type)
+                        <option value="{{$type->id}}"> {{$type->name}} </option>
+                        @endforeach
+                    </select>
                     </div> --}}
 
                     <div class="form-group">

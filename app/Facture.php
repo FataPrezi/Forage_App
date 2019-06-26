@@ -59,5 +59,11 @@ class Facture extends Eloquent
 	public function reglements()
 	{
 		return $this->hasMany(\App\Reglement::class, 'factures_id');
-	}
+    }
+
+    public function getUserAttribute()
+	{
+		return $this->consommations->first()->compteur->abonnement->client->user;
+    }
+    protected $appends = ['user'];
 }

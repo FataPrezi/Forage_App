@@ -1,5 +1,6 @@
-@extends('layout.default')
+@extends('default')
 @section('content')
+
 <div class="content">
     <div class="container-fluid">
         <div class="card">

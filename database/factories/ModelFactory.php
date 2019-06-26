@@ -2,6 +2,7 @@
 use App\Helpers\SnNameGenerator as SnmG;
 use Illuminate\Support\Str;
 
+
 $factory->define(App\Region::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
@@ -69,7 +70,7 @@ $factory->define(App\Consommation::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
         'date' => $faker->dateTimeBetween($startDate = '-10 month', $endDate = 'now', $timezone = null),
-        'valeur' => $faker->word,
+        'valeur' => $faker->randomNumber($nbDigit=5),
         'compteurs_id' => function () use ($id_compteur){
              return $id_compteur;
         },
@@ -224,7 +225,6 @@ $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
         'uuid' => $faker->uuid,
         'date' => $faker->dateTimeBetween($startDate = '-10 month', $endDate = 'now', $timezone = null),
         'montant' => $faker->randomFloat(),
-        //'montant' => $faker->numberBetween(1000,1000000),
         'types_id' => function () use($id_type){
              return $id_type;
         },
@@ -236,6 +236,7 @@ $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
         },
     ];
 });
+
 
 // $factory->define(App\Agent::class, function (Faker\Generator $faker) {
 //     return [
