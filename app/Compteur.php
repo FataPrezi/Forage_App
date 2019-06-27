@@ -77,7 +77,7 @@ class Compteur extends Eloquent
               $facture->valeur_totale_consommee=$valeur;
               $facture->montant=$valeur*3;
               $facture->save();
-              $facture->saveMany($nouvelles_conso);
+              $facture->consommations()->saveMany($nouvelles_conso);
               return $facture;
         }
               return null;

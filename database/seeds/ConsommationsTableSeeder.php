@@ -11,7 +11,8 @@ class ConsommationsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        factory(App\Consommation::class,100)->create(["factures_id"=>null]);
+        $factory=Faker\Factory::create();
+
+        factory(App\Consommation::class,100)->create(["factures_id"=>null,'valeur' => $factory->randomNumber($nbDigit=5)]);
     }
 }
