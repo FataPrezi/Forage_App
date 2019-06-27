@@ -100,6 +100,16 @@
 <script type="text/javascript" src="{{asset('asset/DataTables/datatables.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('asset/qrcodejs/qrcode.min.js')}}"></script>
 
+<!-- buttons for datatables -->
+<script type="text/javascript" src='https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js'> </script>
+<script type="text/javascript" src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js'> </script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js'> </script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js'> </script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js'> </script>
+<script type="text/javascript" src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js'> </script>
+<script type="text/javascript" src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js'> </script>
+<script type="text/javascript" src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js'></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('asset/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->

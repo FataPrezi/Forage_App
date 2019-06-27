@@ -123,6 +123,15 @@
                     //     "targets": 1
                     // }
                 ],
+                           //datatable buttons starts here
+                           //Bfrtip
+                dom: 'lfrtipB',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+
+        ], "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, 100, "All"] ]
+        //ends here
+
           });
 
           $('#table-clients').off('click','.btn-delete-client').on('click','.btn-delete-client',
