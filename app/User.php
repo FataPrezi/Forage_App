@@ -36,7 +36,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  *
  * @package App
  */
-class User extends Authenticable
+class User extends Model
 //class User extends Eloquent
 {
     use \Illuminate\Database\Eloquent\SoftDeletes;
