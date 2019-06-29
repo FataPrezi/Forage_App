@@ -1,57 +1,117 @@
-@extends('./layout.default')
-@section('index-content')
-<div class="register-box">
-  <div class="register-logo">
-    <a href="../../index2.html"><b>SEN FORAGE</b></a>
-  </div>
+@extends('default')
 
-  <div class="register-box-body">
-    <p class="login-box-msg"><b>Nouvelle inscription<b></p>
+ @section('content')
 
-    <form action="../../index.html" method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Nom">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retaper password">
-        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Je suis <a href="#">d'accord</a>
-            </label>
+
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title "><b> SENFORAGE Factures </b></h4>
+                  <p class="card-category">  {{--<b> Clients </b> --}}
+                      <a href="{{route('factures.create')}}"><div class="btn btn-warning"> Ajouter <i class="material-icons">Nouvelle Facture</i></div></a>
+                  </p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table" id="table-factures">
+                      <thead class=" text-primary">
+                        <th>
+                          Date Facturation
+                        </th>
+                        <th>
+                          Date limite
+                        </th>
+                       {{--  <th>
+                            Details
+                        </th> --}}
+                        <th>
+                        Montant
+                        </th>
+                         {{-- <th>
+                          Debut Consommation
+                        </th> --}}
+                        {{-- <th>
+                            Fin Consommation
+                        </th> --}}
+                           <th>
+                            Reglement
+                        </th>
+                        <th>
+                            Client Nom
+                        </th>
+                         <th>
+                            Client Prenom
+                        </th>
+                        <th>
+                          Action
+                          </th>
+                      </thead>
+                      <tbody>
+
+                      </tbody>
+
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+
+            </div>
           </div>
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Valider</button>
-        </div>
-        <!-- /.col -->
       </div>
-    </form>
+      @endsection
 
-    <div class="social-auth-links text-center">
-      <p>- OU -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Se connecter avec
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Se connecter avec
-        Google+</a>
-    </div>
+      @push('scripts')
+      <script type="text/javascript">
+      $(document).ready(function () {
+          $('#table-factures').DataTable( {
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{{route('factures.list')}}",
+            columns: [
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'date_limite', name: 'date_limite' },
+                   /*  { data: 'details', name: 'details' }, */
+                    { data: 'montant', name: 'montant' },
+                   // { data: 'debut_consommation', name: 'debut_consommation' },
+                  //{ data: 'fin_consommation', name: 'fin_consommation' },
+                    { data: 'reglement.type.name', name: 'reglement.type.name' },
+                    { data: 'reglement.comptable.user.name', name: 'reglement.comptable.user.name' },
+                    { data: 'reglement.comptable.user.firstname', name: 'reglement.comptable.user.firstname' },
+                    { data: null ,orderable: false, searchable: false}
 
-    <a href="login.html" class="text-center">Je suis déjà membre</a>
-  </div>
-  <!-- /.form-box -->
-</div>
-<!-- /.register-box -->
-@stop
+                ],
+                "columnDefs": [
+                        {
+                        "data": null,
+                        "render": function (data, type, row) {
+                        url_e =  "{!! route('factures.show',':id')!!}".replace(':id', data.id);
+                        url_d =  "{!! route('reglements.create',':id')!!}".replace(':id', data.id);
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">details</i></a>'+
+                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">reglement</i></a>';
+                        },
+                        "targets": 6
+                        },
+                    // {
+                    //     "data": null,
+                    //     "render": function (data, type, row) {
+                    //         url =  "{!! route('clients.edit',':id')!!}".replace(':id', data.id);
+                    //         return check_status(data,url);
+                    //     },
+                    //     "targets": 1
+                    // }
+                ],
+
+          });
+      });
+
+      </script>
+@endpush
+
+

@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Village;
+use App\Facture;
 use Illuminate\Http\Request;
-use App\Helpers\PCollection;
+use Yajra\Datatables\Datatables;
 
-class VillageController extends Controller
+class FactureController extends Controller
 {
+    public function list(Request $request)
+    //
+    {
+        //$factures=Facture::get()->load('reglement.comptable.user');
+        $factures=Facture::with('reglement.type','reglement.comptable.user')->get();
+       return Datatables::of($factures)->make(true);
+
+       //return view('reglement.index');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +25,11 @@ class VillageController extends Controller
      */
     public function index()
     {
-        $villages=Village::all()->load(['chef.user','commune.arrondissement.departement.region'])->paginate(10);
-        return view('layout.village.index',compact('villages'));
+        //
+        return view('facture.index');
+        /* $factures=Facture::get()->paginate(10);
+        return view('facture.index',compact('factures')); */
+
     }
 
     /**
@@ -24,9 +37,12 @@ class VillageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Facture $facture)
     {
-        //
+        //return view('reglement.create');
+
+        return $facture;
+
     }
 
     /**
@@ -43,21 +59,22 @@ class VillageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function show(Village $village)
+    public function show(Facture $facture)
     {
         //
+        return view('facture.facture',compact('facture'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function edit(Village $village)
+    public function edit(Facture $facture)
     {
         //
     }
@@ -66,10 +83,10 @@ class VillageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Village  $village
+     * @param  \App\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Village $village)
+    public function update(Request $request, Facture $facture)
     {
         //
     }
@@ -77,10 +94,10 @@ class VillageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Village $village)
+    public function destroy(Facture $facture)
     {
         //
     }

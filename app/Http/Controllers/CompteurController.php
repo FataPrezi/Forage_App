@@ -8,15 +8,15 @@ use Yajra\Datatables\Datatables;
 
 class CompteurController extends Controller
 {
-    public function listfree(Request $request)
+    public function list(Request $request)
     {
-           /*  $compteurs=Compteur::get()->load();
-        return Datatables::of($compteurs)->make(true); */
-
-         $compteurs=Compteur::with('abonnement')->get();
+              $compteurs=Compteur::get();
         return Datatables::of($compteurs)->make(true);
 
-        /*  $compteurs=Compteur::get()->paginate(10);
+         /*  $compteurs=Compteur::with('compteur')->get();
+        return Datatables::of($compteurs)->make(true); */
+
+           /* $compteurs=Compteur::get()->paginate(10);
         return view('compteur.index',compact('compteurs')); */
 
     }
@@ -27,12 +27,9 @@ class CompteurController extends Controller
      */
     public function index()
     {
-        //
-        return view('compteur.index');
-
-
-
-
+        //return view('compteur.index');
+        $compteurs=Compteur::get()->paginate(10);
+        return view('compteur.index',compact('compteurs'));
 
     }
 

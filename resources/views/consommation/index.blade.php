@@ -64,7 +64,7 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-clients').DataTable( {
+          $('#table-consommations').DataTable( {
             "processing": true,
             "serverSide": true,
             "ajax": "{{route('consommations.list')}}",
@@ -75,7 +75,7 @@
                     { data: 'compteurs_id', name: 'compteurs_id' },
                     { data: 'compteur.abonnement.client.user.name', name: 'compteur.abonnement.client.user.name' },
                     { data: 'compteur.abonnement.client.user.firstname', name: 'compteur.abonnement.client.user.firstname' },
-                    { data: 'agents_id', name: 'agents_id' },
+                    { data: 'agent.matricule', name: 'agent.matricule' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],

@@ -15,10 +15,10 @@ class ConsommationController extends Controller
     {
 
           if($abonnement==null){
-            $consommations=\App\Consommation::with('compteur.abonnement.client.user')->get();
+            $consommations=\App\Consommation::with('agent','compteur.abonnement.client.user')->get();
             return DataTables::of($consommations)->make(true);
         }else{
-            $consommations=$abonnement->compteur->consommations->load('compteur.abonnement.client.user');
+            $consommations=$abonnement->compteur->consommations->load('agent','compteur.abonnement.client.user');
             return DataTables::of($consommations)->make(true);
         }
     }

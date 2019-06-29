@@ -111,7 +111,7 @@
                     <button type="submit" class="btn btn-primary">Valider</button>
                                 </td>
                                 <td>
-                                        <button type="" class=""></button>
+                                         &nbsp;&nbsp;
                                 </td>
                                 <td>
                     <button type="submit" class="btn btn-primary">Annuler</button>

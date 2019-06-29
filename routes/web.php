@@ -61,9 +61,9 @@ Route::get('/', function () {
 
 //REGLEMENT
  Route::get('/reglements/list', 'ReglementController@list')->name('reglements.list'); //route pour l'affichage des datatables
- Route::get('/reglements/create', 'ReglementController@create')->name('reglements.create');
+ Route::get('/reglements/create/{facture?}', 'ReglementController@create')->name('reglements.create');
  Route::get('/reglements/store', 'ReglementController@store')->name('reglements.store');
- Route::resource('reglements', 'ReglementController');
+ Route::resource('reglements', 'ReglementController')->except('create');
 
 //USER
 Route::get('/users/list', 'UserController@list')->name('users.list');
@@ -96,10 +96,15 @@ Route::get('/abonnements/create', 'AbonnementController@create')->name('abonneme
 Route::resource('abonnements', 'AbonnementController');
 
 //COMPTEUR
-/*  Route::get('/compteurs/listfree', function () {
-    return view('compteur.index');})->name('compteurs.listfree'); */
-Route::get('/compteurs/listfree', 'CompteurController@listfree')->name('compteurs.listfree');
+Route::get('/compteurs/list', 'CompteurController@list')->name('compteurs.list');
 Route::resource('compteurs', 'CompteurController');
+
+//FACTURE
+Route::get('/facture-detail', function () {
+    return view('facture.facture');
+});
+Route::get('/factures/list', 'FactureController@list')->name('factures.list');
+Route::resource('factures', 'FactureController');
 
 //CARBON
 use Carbon\Carbon;

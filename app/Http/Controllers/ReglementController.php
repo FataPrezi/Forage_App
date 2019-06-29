@@ -44,6 +44,7 @@ public function list(Request $request)
     {
         //
         return view('reglement.create');
+
     }
 
     /**

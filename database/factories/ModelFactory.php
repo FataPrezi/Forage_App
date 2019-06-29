@@ -184,7 +184,8 @@ $factory->define(App\Compteur::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Consommation::class, function (Faker\Generator $faker) {
     $id_agent=App\Agent::all()->random()->id;
-    $id_compteur=App\Compteur::all()->random()->id;
+    //$id_compteur=App\Compteur::all()->random()->id;
+    $id_compteur=App\Compteur::has('abonnement')->get()->random()->id;
     $id_facture=App\Facture::all()->random()->id;
     return [
         'uuid' => $faker->uuid,
@@ -322,7 +323,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'uuid'=>Str::uuid(),
         'firstname' => SnmG::getFirstName(),
         'name' => SnmG::getName(),
-        'telephone' => $faker->word,
+        'telephone' => "77".$faker->randomNumber($nbDigit=7,$strict=true),
         'email' => Str::random(5).".".$faker->safeEmail,
         'email_verified_at' => $faker->dateTimeBetween(),
         'password' => bcrypt('secret'),

@@ -14,7 +14,8 @@ class UserController extends Controller
     public function list(Request $request)
 
 {
-    $users=User::with('role')->get();
+    $users=\App\User::with('role')->get();
+    //$users=User::with('role')->get();
     //$users=User::all();
    return Datatables::of($users)->make(true);
 
@@ -27,7 +28,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $users=User::get()->paginate(10);
+        return view('user.index',compact('users'));
+
+        //return view('user.index');
        /*  $users=User::get()->paginate(10);
         return view('user.index',compact('users')); */
 

@@ -85,7 +85,7 @@
     </div>
 </form>
   </div>
-
+ <!-- Modal -->
       @endsection
 
       @push('scripts')

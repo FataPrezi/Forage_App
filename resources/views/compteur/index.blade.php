@@ -23,14 +23,11 @@
                           UUID
                         </th>
                         <th>
-                            NSERIE
+                            N_SERIE
                         </th>
                         <th>
                           Date Creation
                         </th>
-                        <th>
-                            Proprietaire
-                          </th>
                         <th>
                           Action
                           </th>
@@ -59,13 +56,12 @@
           $('#table-compteurs').DataTable( {
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('compteurs.listfree')}}",
+            "ajax": "{{route('compteurs.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
                     { data: 'uuid', name: 'uuid' },
                     { data: 'numero_serie', name: 'numero_serie' },
                     { data: 'created_at', name: 'created_at' },
-                    { data: 'abonnement.id', name: 'abonnement.id' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -73,14 +69,10 @@
                     {
                         "data": null,
                         "render": function (data, type, row) {
-                            /*  <?php
-
-$client = "";
-
-?> */
                         url_e =  "{!! route('abonnements.create',['compteur'=>'id-cptr','client'=>'idc'])!!}".replace('id-cptr', data.id).replace('idc',$client->id);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'; },
-                        "targets": 5
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>';
+                        },
+                        "targets": 4
                         },
                     // {
                     //     "data": null,
