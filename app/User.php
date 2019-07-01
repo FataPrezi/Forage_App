@@ -36,8 +36,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  *
  * @package App
  */
-class User extends Model
-//class User extends Eloquent
+class User extends Eloquent
 {
     use \Illuminate\Database\Eloquent\SoftDeletes;
     use \App\Helpers\UuidForKey;

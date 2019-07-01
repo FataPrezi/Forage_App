@@ -50,9 +50,9 @@ class Compteur extends Eloquent
 		return $this->hasOne(\App\Abonnement::class, 'compteurs_id');
 	}
 
-	public function consommations()
+	public function consommation()
 	{
-		return $this->hasMany(\App\Consommation::class, 'compteurs_id');
+		return $this->hasOne(\App\Consommation::class, 'compteurs_id');
     }
 
     public function getNewConsommationsAttribute()//retourne les consommations sans facture

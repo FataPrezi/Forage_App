@@ -7,28 +7,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-/*class User extends Model
-{
-    public function role ()
-    {return $this->belongsTo('App\Role');}
 
-    public function agent ()
-    {return $this->hasOne('App\Agent');}
-
-    public function gestionnaire ()
-    {return $this->hasOne('App\Gestionnaire');}
-
-    public function client ()
-    {return $this->hasOne('App\Client','users');}
-
-    public function comptable ()
-    {return $this->hasOne('App\Comptable','users');}
-
-}
-*/
-
-
-class User extends Model
+class User extends Authenticatable
 {
     use Notifiable;
 
