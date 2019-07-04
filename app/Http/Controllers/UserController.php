@@ -14,8 +14,8 @@ class UserController extends Controller
     public function list(Request $request)
 
 {
-    $users=\App\User::with('role')->get();
-    //$users=User::with('role')->get();
+    //$users=User::get();
+    $users=User::with('role')->get();
     //$users=User::all();
    return Datatables::of($users)->make(true);
 

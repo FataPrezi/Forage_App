@@ -10,7 +10,7 @@ class CompteurController extends Controller
 {
     public function list(Request $request)
     {
-              $compteurs=Compteur::get();
+              $compteurs=Compteur::with('abonnement.client.user')->get();
         return Datatables::of($compteurs)->make(true);
 
          /*  $compteurs=Compteur::with('compteur')->get();
@@ -27,9 +27,9 @@ class CompteurController extends Controller
      */
     public function index()
     {
-        //return view('compteur.index');
-        $compteurs=Compteur::get()->paginate(10);
-        return view('compteur.index',compact('compteurs'));
+        return view('compteur.index');
+        /* $compteurs=Compteur::get()->paginate(10);
+        return view('compteur.index',compact('compteurs')); */
 
     }
 
