@@ -17,11 +17,19 @@
  */
 
 Route::get('/', function () {
+    return view('landing-page.landing');
+});
+//DASHBOARD
+Route::get('/home', function () {
     return view('default-content');
 });
 
+//LOGIN
+Route::get('/login2', function () {
+    return view('login');
+});
+
 //AUTH
-
  Route::get('loginfor/{rolename?}',function($rolename=null){
     if(!isset($rolename)){
         return view('auth.loginfor');
@@ -31,27 +39,30 @@ Route::get('/', function () {
             $user=$role->users()->first();
             Auth::login($user,true);
             return redirect()->route('home');
-
         }
     }
  return redirect()->route('login');
  })->name('loginfor');
 
- Route::get('loginfor/{rolename?}',function($rolename=null){
-    if(!isset($rolename)){
-        return view('auth.loginfor');
-    }else{
-        $role=App\Role::where('name',$rolename)->first();
-        if($role){
-            $user=$role->users()->first();
-            Auth::login($user,true);
-            return redirect()->route('home');
+//AUTH LOGIN
+Route::get('/authlogin', function () {
+    return view('auth.login');
+});
 
-        }
-    }
- return redirect()->route('login');
- })->name('loginfor');
+//AUTH LOGINFOR
+Route::get('/authloginfor', function () {
+    return view('auth.loginfor');
+});
 
+//AUTH REFISTER
+Route::get('/authregister', function () {
+    return view('auth.register');
+});
+
+//AUTH LOGINFOR
+Route::get('/authverify', function () {
+    return view('auth.verify');
+});
 
  Auth::routes();
 

@@ -253,7 +253,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Se deconnecter</a>
+                  <a href="/devweb/public" class="btn btn-default btn-flat">Se deconnecter</a>
                 </div>
               </li>
             </ul>

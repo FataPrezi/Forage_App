@@ -71,6 +71,7 @@
                     { data: 'firstname', name: 'firstname' },
                     { data: 'telephone', name: 'telephone' },
                     { data: 'email', name: 'email' },
+                    //{ data: 'roles.id', name: 'roles.id' },
                     { data: 'role.name', name: 'role.name' },
                     { data: null ,orderable: false, searchable: false}
 

@@ -24,26 +24,14 @@
                         <th>
                           Date limite
                         </th>
-                       {{--  <th>
-                            Details
-                        </th> --}}
                         <th>
                         Montant
                         </th>
-                         {{-- <th>
+                          <th>
                           Debut Consommation
-                        </th> --}}
-                        {{-- <th>
-                            Fin Consommation
-                        </th> --}}
-                           <th>
-                            Reglement
-                        </th>
-                        <th>
-                            Client Nom
                         </th>
                          <th>
-                            Client Prenom
+                            Fin Consommation
                         </th>
                         <th>
                           Action
@@ -77,13 +65,9 @@
             columns: [
                     { data: 'created_at', name: 'created_at' },
                     { data: 'date_limite', name: 'date_limite' },
-                   /*  { data: 'details', name: 'details' }, */
                     { data: 'montant', name: 'montant' },
-                   // { data: 'debut_consommation', name: 'debut_consommation' },
-                  //{ data: 'fin_consommation', name: 'fin_consommation' },
-                    { data: 'reglement.type.name', name: 'reglement.type.name' },
-                    { data: 'reglement.comptable.user.name', name: 'reglement.comptable.user.name' },
-                    { data: 'reglement.comptable.user.firstname', name: 'reglement.comptable.user.firstname' },
+                    { data: 'debut_consommation', name: 'debut_consommation' },
+                    { data: 'fin_consommation', name: 'fin_consommation' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -96,7 +80,7 @@
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">details</i></a>'+
                         '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">reglement</i></a>';
                         },
-                        "targets": 6
+                        "targets": 5
                         },
                     // {
                     //     "data": null,

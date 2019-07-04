@@ -1,5 +1,5 @@
 @extends('default')
-    @section('login')
+    @section('section')
 
      <div class="login-box">
            <div class="login-logo">
@@ -9,7 +9,7 @@
   <div class="login-box-body">
     <p class="login-box-msg"><b>Se connecter</b></p>
 
-    <form action="/devweb/public/default" method="post">
+    <form action="/devweb/public/default-content" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Identifiant">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -49,5 +49,5 @@
   <!-- /.login-box-body -->
  </div>
 <!-- /.login-box -->
+@endsection
 
-@stop

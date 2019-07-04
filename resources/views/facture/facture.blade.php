@@ -40,9 +40,9 @@
 		<div id="to">
 			<p>
                  <strong>{{$facture->user->name}} {{$facture->user->firstname}}</strong><br>
-                 {{$facture->user->client->village->nom}}<br>
+                 {{-- {{$facture->village->id}}<br> --}}
+                {{-- {{$facture->user->client->village->commune->nom}}  --}}
 
-               {{-- {{$facture->user->client->village->commune->nom}} --}}
 
 			</p>
 		</div>
