@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Business Casual - Start Bootstrap Theme</title>
+  <title>SENFORAGE</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="{{asset('asset/landing-page/vendor/bootstrap/css/bootstrap.min.css')}}">
