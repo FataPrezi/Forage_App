@@ -15,19 +15,21 @@
     return view('compteur.index');
 });
  */
-
-Route::get('/', function () {
+//LANDING PAGE
+ Route::get('/', function () {
     return view('landing-page.landing');
-});
+})->name('landing-page.landing');
+
+
 //DASHBOARD
 Route::get('/home', function () {
     return view('default-content');
-});
+})->name('default-content');
 
-//LOGIN
+/* //LOGIN
 Route::get('/login2', function () {
     return view('login');
-});
+}); */
 
 //AUTH
  Route::get('loginfor/{rolename?}',function($rolename=null){
@@ -47,22 +49,22 @@ Route::get('/login2', function () {
 //AUTH LOGIN
 Route::get('/authlogin', function () {
     return view('auth.login');
-});
+})->name('authlogin');
 
 //AUTH LOGINFOR
 Route::get('/authloginfor', function () {
     return view('auth.loginfor');
-});
+})->name('authloginfor');
 
-//AUTH REFISTER
+//AUTH REGISTER
 Route::get('/authregister', function () {
     return view('auth.register');
-});
+})->name('authregister');
 
-//AUTH LOGINFOR
+//AUTH VERIFY
 Route::get('/authverify', function () {
     return view('auth.verify');
-});
+})->name('authverify');
 
  Auth::routes();
 
@@ -71,21 +73,25 @@ Route::get('/authverify', function () {
 }); */
 
 //REGLEMENT
+ Route::get('/reglements/index', 'ReglementController@index')->name('reglements.index');
  Route::get('/reglements/list', 'ReglementController@list')->name('reglements.list'); //route pour l'affichage des datatables
  Route::get('/reglements/create/{facture?}', 'ReglementController@create')->name('reglements.create');
  Route::get('/reglements/store', 'ReglementController@store')->name('reglements.store');
  Route::resource('reglements', 'ReglementController')->except('create');
 
 //USER
+Route::get('/users/index', 'UserController@index')->name('users.index');
 Route::get('/users/list', 'UserController@list')->name('users.list');
 Route::get('/users/create', 'UserController@create')->name('users.create');
 Route::resource('users', 'UserController');
 
 //VILLAGE
+Route::get('/villagess/index', 'VillageController@index')->name('villages.index');
 Route::get('/villages/list', 'VillageController@list')->name('villages.list');
 Route::resource('villages', 'VillageController');
 
 //CLIENT
+Route::get('/clients/index', 'ClientController@index')->name('clients.index');
 Route::get('/clients/selectvillage', function () {
     return view('client.selectvillage');})->name('clients.selectvillage');
  Route::get('/clients/create', 'ClientController@create')->name('clients.create');
@@ -93,11 +99,13 @@ Route::get('/clients/selectvillage', function () {
  Route::resource('clients', 'ClientController');
 
  //CONSOMMATION
+ Route::get('/consommations/index', 'ConsommationController@index')->name('consommations.index');
   Route::get('/consommations/list/{abonnement?}','ConsommationController@list')->name('consommations.list');//route pour consommation
   Route::get('/consommations/list', 'ConsommationController@list')->name('consommations.list');
  Route::resource('consommations', 'ConsommationController');
 
  //ABONNEMENT
+ Route::get('/abonnements/index', 'AbonnementController@index')->name('abonnements.index');
  Route::get('/abonnements/selectclient', function () {
     return view('abonnement.selectclient');})->name('abonnements.selectclient');
 Route::get('/abonnements/list', 'AbonnementController@list')->name('abonnements.list');
@@ -107,10 +115,12 @@ Route::get('/abonnements/create', 'AbonnementController@create')->name('abonneme
 Route::resource('abonnements', 'AbonnementController');
 
 //COMPTEUR
+Route::get('/compteurs/index', 'CompteurController@index')->name('compteurs.index');
 Route::get('/compteurs/list', 'CompteurController@list')->name('compteurs.list');
 Route::resource('compteurs', 'CompteurController');
 
 //FACTURE
+Route::get('/factures/index', 'FactureController@index')->name('factures.index');
 Route::get('/facture-detail', function () {
     return view('facture.facture');
 });

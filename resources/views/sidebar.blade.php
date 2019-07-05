@@ -26,15 +26,15 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         {{-- <li class="header">MAIN NAVIGATION</li> --}}
-        <li><a href="/devweb/public"><i class="fa fa-circle-o text-aqua"></i> <span>ACCUEIL</span></a></li>
-        <li><a href="/devweb/public/users"><i class="fa fa-circle-o text-aqua"></i> <span>UTILISATEURS</span></a></li>
-        <li><a href="/devweb/public/clients"><i class="fa fa-circle-o text-aqua"></i> <span>CLIENTS</span></a></li>
-        <li><a href="/devweb/public/villages"><i class="fa fa-circle-o text-aqua"></i> <span>VILLAGES</span></a></li>
-        <li><a href="/devweb/public/abonnements"><i class="fa fa-circle-o text-aqua"></i> <span>ABONNEMENTS</span></a></li>
-        <li><a href="/devweb/public/consommations"><i class="fa fa-circle-o text-aqua"></i> <span>CONSOMMATIONS</span></a></li>
-        <li><a href="/devweb/public/compteurs"><i class="fa fa-circle-o text-aqua"></i> <span>COMPTEURS</span></a></li>
-        <li><a href="/devweb/public/reglements"><i class="fa fa-circle-o text-aqua"></i> <span>REGLEMENTS</span></a></li>
-        <li><a href="/devweb/public/factures"><i class="fa fa-circle-o text-aqua"></i> <span>FACTURATION</span></a></li>
+        <li><a href="{{url('/')}}"><i class="fa fa-circle-o text-aqua"></i> <span>ACCUEIL</span></a></li>
+        <li><a href="{{route('users.index')}}"><i class="fa fa-circle-o text-aqua"></i> <span>UTILISATEURS</span></a></li>
+        <li><a href="{{route('clients.index')}}"><i class="fa fa-circle-o text-aqua"></i> <span>CLIENTS</span></a></li>
+        <li><a href="{{route('villages.index')}}"><i class="fa fa-circle-o text-aqua"></i> <span>VILLAGES</span></a></li>
+        <li><a href="{{route('abonnements.index')}}"><i class="fa fa-circle-o text-aqua"></i> <span>ABONNEMENTS</span></a></li>
+        <li><a href="{{route('consommations.index')}}"><i class="fa fa-circle-o text-aqua"></i> <span>CONSOMMATIONS</span></a></li>
+        <li><a href="{{route('compteurs.index')}}"><i class="fa fa-circle-o text-aqua"></i> <span>COMPTEURS</span></a></li>
+        <li><a href="{{route('reglements.index')}}"><i class="fa fa-circle-o text-aqua"></i> <span>REGLEMENTS</span></a></li>
+        <li><a href="{{route('factures.index')}}"><i class="fa fa-circle-o text-aqua"></i> <span>FACTURATION</span></a></li>
 
             <!-- <li class="active treeview">
           <a href="#">

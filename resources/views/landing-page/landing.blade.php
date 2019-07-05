@@ -53,7 +53,7 @@
             <a class="nav-link text-uppercase text-expanded" href="#">PORTFOLIO</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/devweb/public/authlogin">SE CONNECTER</a>
+            <a class="nav-link text-uppercase text-expanded" href="{{route('authlogin')}}">SE CONNECTER</a>
           </li>
         </ul>
       </div>
